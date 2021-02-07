@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{pageName}}</title>
-    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
+    {{>header}}
+
     {{{body}}}
-    <script src="/static/main.js"></script>
+
+    <script src="main.js" async></script>
+
+    {{>footer}}
 </body>
 
 </html>
