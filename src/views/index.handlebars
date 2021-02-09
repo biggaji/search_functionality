@@ -1,13 +1,20 @@
 <section class="site-main-container">
+    <div class="p-heading-container">
+        <h1 class="p-heading">Explore Articles</h1>
+    </div>
     <div class="search-container">
         <form action="/search" method="get">
             <div class="search-input">
                 <label for="s_query" hidden=true>Search</label><br>
-                <input type="text" name="q" id="s_query" placeholder="Search daata...">
+                <input type="text" name="q" id="s_query" placeholder="Search for articles...">
             </div>
-            <div class="btn-container">
+            {{!-- <div class="btn-container">
                 <button type="submit" class="btn-default btn-search">Search</button>
-            </div>
+            </div> --}}
         </form>
+    </div>
+    <div class="q-result-container">
+        {{!-- {{#each posts}}
+        {{/each}} --}}
     </div>
 </section>
