@@ -6,6 +6,7 @@ const app = express();
 
 const indexRouter = require("./src/routes/index");
 const { show404error } = require("./src/controller/404controlller");
+const searchRouter = require("./src/routes/search");
 
 // app middleware
 app.use(express.urlencoded({ extended: false }));
@@ -18,6 +19,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "src/views"));
 app.use("/", indexRouter);
+app.use("/", searchRouter);
 
 // this middleware handles 404 page
 app.use(show404error);
