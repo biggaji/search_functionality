@@ -1,22 +1,27 @@
+/**
+ * Search functionality
+ * @returns objects - <Object of arrays of articles>
+ * @author Tobi Ajibade
+ */
 const { db } = require("../../configs/db");
 
 exports.search = (req, res) => {
     const { q } = req.query;
     // search for matching post with query
-    // res.json({ query: q })
     try {
-        db.query("SELECT p.title, p.body FROM posts p WHERE p.title ilike $1", [`%${q}%`])
+        db.query(`SELECT p.title, p.body, u.first_name, u.last_name FROM posts p 
+                  INNER JOIN t_user u on p.authorid = u.id WHERE p.title ilike $1`, [`%${q}%`])
             .then(result => {
                 if (result.rowCount > 0) {
                     const postResult = result;
-                    res.render('index', { posts: postResult });
-                    console.log(postResult.rows)
+                    res.render('index', { posts: postResult, query: q });
+                    console.log(postResult.rows[0]);
                 } else {
-                    res.render('index', { errorMessage: `The is no article that matches  "${q}"` });
+                    res.render('index', { errorMessage: `There is no article that matches  "${q}"`, query: q });
                 }
             })
             .catch(e => {
-                res.render('index', { errorMessage: `An error occured while fetching articles : ${e}` });
+                res.render('index', { errorMessage: `An error occured while fetching articles.` });
                 console.log(e);
             });
     } catch (error) {
