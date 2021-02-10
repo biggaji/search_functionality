@@ -16,5 +16,25 @@
     <div class="q-result-container">
         {{!-- {{#each posts}}
         {{/each}} --}}
+        <div class="msgBox">
+            {{#if errorMessage}}
+            <p id="toast-message"><strong>{{errorMessage}}</strong></p>
+            {{/if}}
+        </div>
+        <div class="results">
+            {{#if posts}}
+            <div class="postCount-container">
+                <p class="count-text"><strong>{{posts.rowCount}} articles found</strong></p>
+            </div>
+            {{#if posts.rows}}
+            {{#each posts.rows}}
+            <div class="article-excerpt">
+                <p>{{this.title}}</p>
+                <p>{{this.body}}</p>
+            </div>
+            {{/each}}
+            {{/if}}
+            {{/if}}
+        </div>
     </div>
 </section>
