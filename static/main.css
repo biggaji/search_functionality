@@ -6,4 +6,57 @@
 
 body {
   width: 100%;
+  height: 100vh;
+  padding: 0 10%;
+  font-family: "SF Pro";
+  border: 3px solid #ff2;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: url(SFProText-Regular.ttf);
+}
+header {
+  margin: 1rem 0;
+}
+
+.site-main-container {
+  width: 100%;
+  padding: 0.5rem;
+  height: auto;
+}
+.site-main-container .p-heading-container {
+  width: inherit;
+  height: inherit;
+}
+.site-main-container .p-heading-container .p-heading {
+  font-weight: 400;
+  font-color: #555;
+}
+.site-main-container .search-container {
+  width: 100%;
+  margin: 1rem 0;
+}
+.site-main-container .search-container .search-input {
+  width: 100%;
+}
+.site-main-container .search-container .search-input input {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  font-size: 1.2rem;
+  outline: none;
+  border: 3px solid #ff2;
+}
+.site-main-container .q-result-container {
+  width: 100%;
+}
+
+footer .copy-right {
+  font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 550px) {
+  .site-main-container .search-container .search-input input {
+    font-size: 1rem;
+  }
 }/*# sourceMappingURL=main.css.map */
