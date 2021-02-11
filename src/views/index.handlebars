@@ -6,16 +6,12 @@
         <form action="/search" method="get">
             <div class="search-input">
                 <label for="s_query" hidden=true>Search</label><br>
-                <input type="text" name="q" id="s_query" placeholder="Search for articles...">
+                <input type="text" name="q" id="s_query" placeholder="Search for articles..." {{#if query}}
+                    value="{{query}}" {{/if}}>
             </div>
-            {{!-- <div class="btn-container">
-                <button type="submit" class="btn-default btn-search">Search</button>
-            </div> --}}
         </form>
     </div>
     <div class="q-result-container">
-        {{!-- {{#each posts}}
-        {{/each}} --}}
         <div class="msgBox">
             {{#if errorMessage}}
             <p id="toast-message"><strong>{{errorMessage}}</strong></p>
@@ -26,14 +22,18 @@
             <div class="postCount-container">
                 <p class="count-text"><strong>{{posts.rowCount}} articles found</strong></p>
             </div>
-            {{#if posts.rows}}
-            {{#each posts.rows}}
-            <div class="article-excerpt">
-                <p>{{this.title}}</p>
-                <p>{{this.body}}</p>
+            <div class="article-box">
+                {{#if posts.rows}}
+                {{#each posts.rows}}
+                <div class="article-excerpt">
+                    <p class="a-title">{{this.title}}</p>
+                    <p class="a-body">{{this.body}}</p>
+                    <p class="a-author" style="font-size: 0.8rem;">Written by - {{this.first_name}} {{this.last_name}}
+                    </p>
+                </div>
+                {{/each}}
+                {{/if}}
             </div>
-            {{/each}}
-            {{/if}}
             {{/if}}
         </div>
     </div>
