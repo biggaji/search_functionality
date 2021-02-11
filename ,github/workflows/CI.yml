@@ -3,7 +3,7 @@ name: deploy app
 on:[push]
 
 jobs:
-  deploy
+  deploy:
 
     runs-on: ubuntu-latest
     steps:
