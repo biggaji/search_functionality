@@ -1,6 +1,6 @@
 name: deploy app
 
-on:[push]
+on: push
 
 jobs:
   deploy:
