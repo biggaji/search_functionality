@@ -21,7 +21,7 @@ exports.search = (req, res) => {
                 }
             })
             .catch(e => {
-                res.render('index', { errorMessage: `An error occured while fetching articles.` });
+                res.render('index', { errorMessage: `An error occured while fetching articles. - ${e}` });
                 console.log(e);
             });
     } catch (error) {
