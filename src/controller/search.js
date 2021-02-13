@@ -1,6 +1,6 @@
 /**
  * Search functionality
- * @returns objects - <Object of arrays of articles>
+ * @returns {Object\Array} - <Object of arrays of articles>
  * @author Tobi Ajibade
  */
 const { db } = require("../../configs/db");
@@ -14,8 +14,9 @@ exports.search = (req, res) => {
             .then(result => {
                 if (result.rowCount > 0) {
                     const postResult = result;
+                    // Use regex to highlight the search item
                     res.render('index', { posts: postResult, query: q });
-                    console.log(postResult.rows[0]);
+                    // console.log(postResult.rows[0]);
                 } else {
                     res.render('index', { errorMessage: `There is no article that matches  "${q}"`, query: q });
                 }
